@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Chat Interface</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .chat-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        
+        .message.input {
+            background-color: #e0f2f1;
+            text-align: right;
+        }
+        
+        .message.output {
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+        
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+        
+        #user-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        #send-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="message input">Hello, how can I help you?</div>
+        <div class="message output">Hi there! I have a question.</div>
+        <!-- Add more messages here -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your message">
+        <button id="send-button">Send</button>
+    </div>
+    <script>
+
+    //document.addEventListener("DOMContentLoaded", function () {
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-button");
+        const chatContainer = document.querySelector(".chat-container");
+
+        sendButton.addEventListener("click", function () {
+            const userMessage = userInput.value;
+            if (userMessage.trim() === "") return;
+
+            appendMessage("input", userMessage);
+            userInput.value = "";
+
+            // Simulate a response (you can replace this with actual chatbot logic)
+            setTimeout(function () {
+                const botResponse = "This is a bot response.";
+                appendMessage("output", botResponse);
+            }, 1000);
+        });
+
+        function appendMessage(type, message) {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message", type);
+            messageDiv.textContent = message;
+            chatContainer.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+   // });
+</script>
+
+</body>
+</html>

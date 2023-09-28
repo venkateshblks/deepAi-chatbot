@@ -1,0 +1,119 @@
+
+
+body{
+  background-color: rgb(21, 21, 21);
+  /* color: white; / */
+}
+
+button{
+padding: 2px 30px ;
+position: sticky;
+
+bottom: 4%;
+right:0%;
+display: flex;
+justify-content: center;
+align-items: center;
+/* width: 20%; */
+height: 30px;
+border-radius: 10px;
+background-color: blue;
+font-size: 1.2rem;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+cursor: pointer;
+color: white;
+
+}
+.cent {
+    display: flex;
+    /* position: sticky; */
+
+   
+    align-items: center; 
+    /* height: 96vh; */
+    margin: 0;
+
+    flex-direction: column;
+    border:0px;
+    /* outline:none; */
+    justify-content:flex-end; 
+    gap: 5px;
+    /* overflow-y: scroll; */
+   
+    text-align: center;
+  }
+  h1{
+    text-align: center;
+    color: aqua;
+  }
+#in{
+
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  /* width: 90vh; */
+  position:fixed;
+  bottom: 0%;
+  /* left:0%; */
+  background-color: black;
+
+
+}
+#inp{
+
+    resize: none;
+    padding: 5px;
+    margin: 9px;
+    border:0px;
+    border-radius:10px ;
+    width:90%;
+    max-height: 140px;
+    text-decoration: none;
+    letter-spacing: normal;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}  
+#inp:focus{
+  outline:none;
+}
+/* output */
+.out {
+  
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+
+  border-radius: 20px;
+  background-color: rgb(85, 85, 128);
+  color: rgb(241, 242, 230);
+
+}
+
+.int{
+  text-align: right;
+ 
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  margin: 10px;
+  text-align: right;
+  border-radius: 20px;
+  color: rgb(9, 9, 155);
+  background-color: #ccc;
+}
+
+.chat{
+  max-width: 80%;
+  margin: 20px auto 80px auto;
+  padding: 10px;
+  background-color: #100f0f;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height:400px;
+    overflow-y: scroll;
+}
+.message {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
