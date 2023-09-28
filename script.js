@@ -10,6 +10,7 @@ function autor(){
     this.style.height = 'auto';
     this.style.height = this.scrollHeight + 'px';
     if(this.scrollHeight>150){
+        //venkateshblks
 
         this.style.overflow = 'scroll';
     }
@@ -56,7 +57,7 @@ function appendMessage(type, message) {
 
 
 function runinp(textgen)
-{
+{  //venkateshblks
     const url = 'https://api.deepai.org/api/text-generator'; // API endpoint
 const apiKey = 'Your DeepAI API key'; // Replace with your actual API key
 
@@ -82,6 +83,7 @@ fetch(url, {
    
     appendMessage("out","🤖"+data.output);
     console.log(data.output);
+    // // Written by venkateshblks
   })
 
 }
