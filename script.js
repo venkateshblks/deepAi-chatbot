@@ -1,7 +1,6 @@
 
 
-// document.addEventListener("DOMContentLoaded", function () {
- 
+ document.addEventListener("DOMContentLoaded", function () {
 let inp=document.querySelector('#inp')
 let inj =document.getElementById("inp")
 
@@ -12,7 +11,7 @@ function autor(){
     if(this.scrollHeight>150){
         //venkateshblks
 
-        this.style.overflow = 'scroll';
+      this.style.overflow = 'scroll';
     }
 
 }
@@ -53,13 +52,14 @@ function appendMessage(type, message) {
     chata.scrollTop=chata.scrollHeight;
  
 }
-// });
+
 
 
 function runinp(textgen)
-{  //venkateshblks
-    const url = 'https://api.deepai.org/api/text-generator'; // API endpoint
-const apiKey = 'Your DeepAI API key'; // Replace with your actual API key
+{  
+  //venkateshblks
+  const url = 'https://api.deepai.org/api/text-generator'; // API endpoint
+  const apiKey = 'Your DeepAI API key'; // Replace with your actual API key
 
 const formData = new FormData();
 formData.append('text', textgen);
@@ -86,6 +86,13 @@ fetch(url, {
     // // Written by venkateshblks
   })
 
+  .catch(error => {
+    appendMessage("out","🤖"+error);
+    console.error("API request error:", error);
+});
+
 }
+
+});
  
  
