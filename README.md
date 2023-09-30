@@ -16,6 +16,9 @@
 
 You can try out the live demo of the application [Click here](https://20a31a05g3.github.io/deepAi-chatbot/)
 
+**NOTE :**
+Add your deepai Api in script.js to work properly
+
 ## Technology Stack
 - HTML/CSS: User interface design and styling.
 - JavaScript: Application functionality and API communication.
