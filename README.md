@@ -20,6 +20,19 @@ You can try out the live demo of the application [Click here](https://20a31a05g3
 - HTML/CSS: User interface design and styling.
 - JavaScript: Application functionality and API communication.
 
+
+## Usage
+- Launch the application by opening index.html in your web browser or fork this repository and run.
+- Add your Deep Ai Api in  script.js
+
+- Enter a custom text prompt or question into the input field.
+
+- Click the "Generate" button to send the prompt to the DeepAI Text Generator API.
+
+- The AI-generated text will be displayed in the application.
+
+- Use the generated content for your specific needs, such as content creation, research, or idea generation.
+
   
 ## Contact
 
