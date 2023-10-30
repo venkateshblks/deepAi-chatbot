@@ -42,4 +42,4 @@ Add your deepai Api in script.js to work properly
   If you have any questions, suggestions, or need assistance, please feel free to reach out:
 
 - **Email**: [venkateshblks@gmail.com](mailto:venkateshblks@gmail.com)
-- **GitHub**: [20A31A05G3](https://github.com/20A31A05G3)
+- **GitHub**: [venkateshblks](https://github.com/venkateshblks)
