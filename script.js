@@ -1,81 +1,76 @@
+function appendMessage(type, message, chatArea) {
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("message", type);
+  messageDiv.textContent = message;
+  chatArea.appendChild(messageDiv);
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+function runinp(textgen, apiKey, appendMessageCallback, chatArea) {
+  const url = "https://api.deepai.org/api/text-generator";
+  const formData = new FormData();
+  formData.append("text", textgen);
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "api-key": apiKey,
+    },
+    body: formData,
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Network response was not ok (${response.status})`);
+    }
+    return response.json();
+  })
+  .then(data => appendMessageCallback("out", "🤖" + data.output, chatArea))
+  .catch(error => appendMessageCallback("out", "🤖" + error, chatArea));
+}
+
+// DOMContentLoaded listener
 document.addEventListener("DOMContentLoaded", function () {
   const inp = document.querySelector("#inp");
-  const inj = document.getElementById("inp");
+  const btn = document.getElementById("btn");
+  const chata = document.querySelector(".chat");
 
-  inp.addEventListener("input", autor, false);
-  function autor() {
+  inp.addEventListener("input", function autor() {
     this.style.height = "auto";
     this.style.height = this.scrollHeight + "px";
     if (this.scrollHeight > 150) {
-      //venkateshblks
-
       this.style.overflow = "scroll";
     }
-  }
-  const int = document.getElementById("int");
-  const ou = document.getElementById("out");
-  const b = document.getElementById("btn");
-  const chata = document.querySelector(".chat");
+  }, false);
 
-  b.addEventListener("click", function () {
+  btn.addEventListener("click", function () {
     show();
   });
 
   inp.addEventListener("keyup", function (e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey && !e.ctrlKey && !e.altKey) {
       show();
     }
   });
+
   function show() {
-    const inval = inp.value;
+  const inval = inp.value;
+  if (inval.trim() === "") return;
 
-    if (inval.trim() === "") return;
-    console.log(inval);
-    appendMessage("int", inval + "🧑");
-    runinp(inval);
-    // appendMessage("out","🤖"+inval);
+  appendMessage("int", inval + "🧑", chata);
 
-    inp.value = "";
+  let apiKey = sessionStorage.getItem("deepAiApiKey");
+  
+  if (!apiKey) {
+    apiKey = window.prompt("API Key is missing. Please enter your DeepAI API key.");
+    if (apiKey) {
+      sessionStorage.setItem("deepAiApiKey", apiKey);
+    } else {
+      alert("API Key is required for functionality.");
+      return;
+    }
   }
-  function appendMessage(type, message) {
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", type);
-    messageDiv.textContent = message;
-    chata.appendChild(messageDiv);
-    chata.scrollTop = chata.scrollHeight;
-  }
 
-  function runinp(textgen) {
-    //venkateshblks
-    const url = "https://api.deepai.org/api/text-generator"; // API endpoint
-    const apiKey = "Your DeepAI API key"; // Replace with your actual API key
-
-    const formData = new FormData();
-    formData.append("text", textgen);
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "api-key": apiKey,
-      },
-      body: formData,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok (${response.status})`);
-        }
-
-        return response.json();
-      })
-      .then((data) => {
-        appendMessage("out", "🤖" + data.output);
-        console.log(data.output);
-        // // Written by venkateshblks
-      })
-
-      .catch((error) => {
-        appendMessage("out", "🤖" + error);
-        console.error("API request error:", error);
-      });
+  runinp(inval, apiKey, appendMessage, chata);
+  inp.value = "";
   }
 });
