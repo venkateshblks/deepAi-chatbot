@@ -1,3 +1,14 @@
+function promptForApiKey() {
+  let apiKey = prompt("Please enter your DeepAI API key. It will be stored locally and safely.");
+  if (apiKey) {
+    sessionStorage.setItem("deepAiApiKey", apiKey);
+    console.info("API Key stored successfully.");
+  } else {
+    console.warn("API Key is required for proper functionality.");
+  }
+}
+
+
 function appendMessage(type, message, chatArea) {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("message", type);
@@ -30,6 +41,7 @@ function runinp(textgen, apiKey, appendMessageCallback, chatArea) {
 
 // DOMContentLoaded listener
 document.addEventListener("DOMContentLoaded", function () {
+  promptForApiKey();
   const inp = document.querySelector("#inp");
   const btn = document.getElementById("btn");
   const chata = document.querySelector(".chat");
