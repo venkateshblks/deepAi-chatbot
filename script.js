@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   appendMessage("int", inval + "🧑", chata);
 
-  let apiKey = sessionStorage.getItem("deepAiApiKey");
-  
+  // let apiKey = sessionStorage.getItem("deepAiApiKey");
+  let apiKey=process.env.ApiK
   if (!apiKey) {
     apiKey = window.prompt("API Key is missing. Please enter your DeepAI API key.");
     if (apiKey) {
